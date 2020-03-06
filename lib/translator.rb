@@ -1,12 +1,13 @@
 require "yaml"
 
-def load_library(file_path)
-  library = YAML.load_file(file_path)
-  result = {"get_meaning" => {}, "get_emoticon" => {}}
-  library.each do |meaning, emoticons|
-  result["get_meaning"][emoticons[1]] = meaning
- end
-  result
+def load_library(yaml_file)
+  response = {"get_meaning" => {}, "get_emoticon" => {}}
+  library = YAML.load_file(yaml_file)
+  library.each do |trans, emos|
+  response["get_meaning"][emos[1]] = trans
+  response["get_emoticon"][emos[0]] = emos[1]
+  end
+  response
 end
 
  
