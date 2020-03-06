@@ -28,3 +28,4 @@ def get_english_meaning
     "Sorry, that emoticon was not found"
   end
 end
+end
